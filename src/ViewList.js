@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import Task from "./Task";
 
 const ViewList = (props) => {
   const tasksToHTML = () => {
     const taskList = props.tasks.map((taskObject) => {
-      return <div>{taskObject}</div>;
+      return <Task taskObject={taskObject} />;
     });
     return <div>{taskList}</div>;
   };

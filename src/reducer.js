@@ -1,9 +1,9 @@
 const reducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_TODO":
-      return state.concat([action.payload.content]);
+      return state.concat([action.taskInfos]);
     case "REMOVE_TODO":
-      return state.filter((task) => task !== action.task);
+      return state.filter((taskId) => taskId !== action.taskInfos.id);
     default:
       return state;
   }
