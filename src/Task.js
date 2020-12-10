@@ -5,7 +5,7 @@ import { removeTodo } from "./actions";
 
 const Task = (props) => {
   const deleted = () => {
-    // props.removeTodo2(props.taskObject.id);
+    props.removeTodo2(props.taskObject.id);
   };
   return (
     <div>

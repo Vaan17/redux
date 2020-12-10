@@ -8,9 +8,9 @@ export const addTodo = (content) => ({
   },
 });
 
-export const removeTodo = (content) => ({
+export const removeTodo = (id) => ({
   type: "REMOVE_TODO",
-  id: nextTodoId,
+  id: id,
 });
 
 //... other actions

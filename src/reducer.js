@@ -3,7 +3,7 @@ const reducer = (state = [], action) => {
     case "ADD_TODO":
       return state.concat([action.taskInfos]);
     case "REMOVE_TODO":
-      return state.filter((taskId) => taskId !== action.taskInfos.id);
+      return state.filter((taskObject) => taskObject.id !== action.id);
     default:
       return state;
   }
