@@ -13,4 +13,12 @@ export const removeTodo = (id) => ({
   id: id,
 });
 
+export const editTodo = (content, id) => ({
+  type: "EDIT_TODO",
+  taskInfos: {
+    content,
+    id: id,
+  },
+});
+
 //... other actions

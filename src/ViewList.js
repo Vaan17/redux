@@ -5,7 +5,7 @@ import Task from "./Task";
 const ViewList = (props) => {
   const tasksToHTML = () => {
     const taskList = props.tasks.map((taskObject) => {
-      return <Task taskObject={taskObject} />;
+      return <Task taskObject={taskObject} key={taskObject.id} />;
     });
     return <div>{taskList}</div>;
   };

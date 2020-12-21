@@ -7,6 +7,7 @@ import ViewList from "./ViewList";
 const AddTodo = (props) => {
   const toAdd = () => {
     props.addTodo2(tempTask);
+    setTempTask("");
   };
 
   const [tempTask, setTempTask] = useState("");
@@ -23,7 +24,7 @@ const AddTodo = (props) => {
         placeholder="Ecrivez une tâche"
         value={tempTask}
       />
-      <button onClick={toAdd}>Cliquez</button>
+      <button onClick={toAdd}>Add the Todo</button>
       <ViewList />
     </div>
   );
