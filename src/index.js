@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TodoApp from "./TodoApp"; //a creer et importer
+import TodoApp from "./TodoApp";
 import { Provider } from "react-redux";
 import store from "./store";
 

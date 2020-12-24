@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import Task from "./Task";
+import { TaskToDo, TasksNumber, BorderTasks } from "./styleComponent";
 
 const ViewList = (props) => {
   const tasksToHTML = () => {
@@ -10,7 +11,15 @@ const ViewList = (props) => {
     return <div>{taskList}</div>;
   };
 
-  return <div>A faire : {tasksToHTML()}</div>;
+  return (
+    <BorderTasks>
+      <TaskToDo>Tasks to do </TaskToDo>
+      <TasksNumber>
+        X<small>Tasks</small>
+      </TasksNumber>
+      {tasksToHTML()}
+    </BorderTasks>
+  );
 };
 
 const mapStateToProps = (state) => {

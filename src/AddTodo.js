@@ -2,7 +2,8 @@ import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addTodo } from "./actions";
-import ViewList from "./ViewList";
+import { MyButton, TaskInput } from "./styleComponent";
+import AddIcon from "@material-ui/icons/Add";
 
 const AddTodo = (props) => {
   const toAdd = () => {
@@ -17,16 +18,17 @@ const AddTodo = (props) => {
   };
 
   return (
-    <div>
+    <TaskInput>
       <TextField
         label="Tâche"
         onChange={onInputChangeTask}
         placeholder="Ecrivez une tâche"
         value={tempTask}
       />
-      <button onClick={toAdd}>Add the Todo</button>
-      <ViewList />
-    </div>
+      <MyButton startIcon={<AddIcon />} onClick={toAdd}>
+        Add
+      </MyButton>
+    </TaskInput>
   );
 };
 

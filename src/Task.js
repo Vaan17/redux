@@ -5,6 +5,15 @@ import { connect } from "react-redux";
 import { removeTodo } from "./actions";
 import { editTodo } from "./actions";
 import { TextField } from "@material-ui/core";
+import {
+  MyButton,
+  DeleteOrCancelButton,
+  EditButton,
+  CardContent,
+  CardEditMode,
+  CardSize,
+  ButtonPos1,
+} from "./styleComponent";
 
 const Task = (props) => {
   const [newTask, setNewTask] = useState();
@@ -30,25 +39,56 @@ const Task = (props) => {
 
   const editValidated = () => {
     setIsEditing(false);
+    setNewTask("");
     props.editTodo2(newTask, props.taskObject.id);
     console.log("task edited succefully !");
   };
 
   return (
     <div>
-      {props.taskObject.content}
-      <DeleteIcon onClick={deleted} />
-      <CreateIcon onClick={editing} />
+      {!isEditing && (
+        <CardSize>
+          <CardContent>
+            <div>
+              {props.taskObject.content}
+              <br />
+              <ButtonPos1>
+                <EditButton startIcon={<CreateIcon />} onClick={editing}>
+                  Edit
+                </EditButton>
+
+                <DeleteOrCancelButton
+                  startIcon={<DeleteIcon />}
+                  onClick={deleted}
+                >
+                  Delete
+                </DeleteOrCancelButton>
+              </ButtonPos1>
+            </div>
+          </CardContent>
+        </CardSize>
+      )}
+
       {isEditing && (
-        <div>
-          <TextField
-            label="Nouvelle Tâche"
-            onChange={onInputChangeNewTask}
-            placeholder="Ecrivez une tâche"
-            value={newTask}
-          />
-          <button onClick={editValidated}>Change the task</button>
-        </div>
+        <CardSize>
+          <CardEditMode>
+            <TextField
+              style={{ marginBottom: 20 }}
+              label="Nouvelle Tâche"
+              onChange={onInputChangeNewTask}
+              placeholder="Ecrivez une tâche"
+              value={newTask}
+            />
+            <br />
+            <ButtonPos1>
+              <MyButton onClick={editValidated}>Change the task</MyButton>
+
+              <DeleteOrCancelButton onClick={editing}>
+                Cancel
+              </DeleteOrCancelButton>
+            </ButtonPos1>
+          </CardEditMode>
+        </CardSize>
       )}
     </div>
   );
